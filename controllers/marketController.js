@@ -11,6 +11,10 @@ router.get('/', (req, res) =>{
     fetch(baseURL + `/stock/aapl/quote?token=${key}`)
         .then(response => response.json())
         .then(data => {
+            for(const item in data){
+                console.log(item)
+                console.log(data[item])
+            }
             res.render('stocks/index.ejs',
                 {
                     stock: data
